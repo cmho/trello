@@ -358,5 +358,12 @@ Trello.prototype.addDueDateToCard = function (cardId, dateValue, callback) {
     return makeRequest(rest.put, this.uri + '/1/cards/' + cardId + '/due', {query: query}, callback);
 };
 
+Trello.prototype.getPluginData = function(cardId, callback) {
+  return makeRequest(rest.get, this.uri + '/1/cards/' + cardId + '/pluginData', {query: this.createQuery()}, callback);
+}
+
+Trello.prototype.getAttachments = function(cardId, callback) {
+  return makeRequest(rest.get, this.uri + '/1/cards/' + cardId + '/attachments', {query: this.createQuery()}, callback);
+}
 
 module.exports = Trello;
